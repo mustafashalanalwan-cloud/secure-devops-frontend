@@ -47,4 +47,4 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
            command: test
-           args: --file=frontend-react/package.json
+           args: --file=frontend-react/package.json --org=mustafashalanalwan-cloud
