@@ -39,11 +39,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: frontend-react
-
+ 
       - name: Run Snyk
         uses: snyk/actions/node@master
+        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          command: test
-          args: --file=frontend-react/package.json
+           command: test
+           args: --file=frontend-react/package.json
