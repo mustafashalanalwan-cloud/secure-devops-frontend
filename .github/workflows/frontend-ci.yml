@@ -22,15 +22,20 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
+        working-directory: frontend-react
         run: npm install
 
       - name: Run tests
+        working-directory: frontend-react
         run: npm test -- --watchAll=false
 
       - name: Build project
+        working-directory: frontend-react
         run: npm run build
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: frontend-react
